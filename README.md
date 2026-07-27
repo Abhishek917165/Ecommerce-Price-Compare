@@ -1,107 +1,78 @@
-# Ecommerce Price Compare 🛍️🔍
+# Ecommerce Price Compare
 
-A modern, full-stack price comparison web application that empowers users to analyze and find the best deals on electronic gadgets (mobiles, laptops, headphones, watches) and shoes across multiple channels. It compares online prices from platforms like **Amazon** and **Flipkart** directly against **local offline stores**, highlighting the maximum savings and recommending the best channel to purchase.
-
----
-
-## ✨ Key Features
-
-* **Multi-Platform Comparison**: Compare real-time prices between major online platforms (Amazon, Flipkart) and physical offline shops (e.g., Croma, Reliance Digital).
-* **Price Compare Meter**: A visual gauge displaying relative price differences across all compared channels.
-* **Savings Analysis**: Automatically calculates the exact savings percentage and total money saved, recommending the cheapest seller.
-* **User Review & Rating System**: Add ratings and read feedback from other bargain hunters.
-* **Admin Dashboard**: Specialized roles to add and modify products, update online/offline prices, and coordinate local store details.
-* **User Authentication**: Secure Login & Sign-up features using Spring Security with default seeded roles.
-* **Modern Premium UI**: Built with a sleek glassmorphic design, smooth micro-animations, and curated harmonious palettes.
+An interactive web application designed to help users search, view, and compare product prices across different simulated sources. It features a complete user authentication system, shopping cart management, product reviews, price comparison meters, and an administrative dashboard.
 
 ---
 
-## 🛠️ Technology Stack
+## Features
 
-### Backend
-* **Language & Framework**: Java 17 + Spring Boot 3
-* **Security**: Spring Security (Role-based Authorization: `USER` & `ADMIN`)
-* **ORM / Database**: Spring Data JPA with H2 (in-memory database for zero configuration) & MySQL support
-* **Build Tool**: Maven
-
-### Frontend
-* **Core Library & Build Tool**: React.js + Vite
-* **Styles**: Modern Custom CSS (Variables, Glassmorphism, CSS Transitions)
-* **Icons**: Inline SVGs
+- **Product Price Comparison**: Real-time visualization of price differences using comparison meters.
+- **User Authentication**: Secure signup, login, and role-based access control (User and Admin) powered by Spring Security.
+- **Cart Management**: Add, remove, and update quantities of products in a user-specific shopping cart.
+- **Product Reviews & Ratings**: Submit ratings and textual feedback for products.
+- **Admin Dashboard**: Manage products, check system statistics, and configure database entries.
+- **Database Seeding**: Built-in seeder that populates sample products and users upon initial startup.
 
 ---
 
-## 📁 Directory Structure
+## Tech Stack
 
-```text
-miniprojectfinal/
-│
-├── backend/                   # Spring Boot application
-│   ├── src/main/java/...      # Java source files (controllers, services, entities, seeders)
-│   ├── src/main/resources/    # Configuration files (application.properties, etc.)
-│   └── pom.xml                # Maven dependencies
-│
-├── frontend/                  # React + Vite application
-│   ├── src/                   # React source files (components, pages, services)
-│   ├── package.json           # Node.js dependencies
-│   └── vite.config.js         # Vite configuration
-│
-├── run.bat                    # One-click startup script for Windows
-└── README.md                  # Project documentation (this file)
-```
+- **Frontend**: React (Vite), Vanilla CSS for custom design system styling.
+- **Backend**: Java, Spring Boot, Spring Security, Spring Data JPA.
+- **Database**: H2 (In-memory, zero-configuration database active by default) / MySQL support available.
+- **Build Tools**: Maven (Backend) & NPM (Frontend).
 
 ---
 
-## 🚀 Quick Start (Windows)
+## How to Set Up and Run the Project
 
-The project includes a startup batch script (`run.bat`) to launch both servers simultaneously in separate terminal windows.
-
-1. Ensure you have **Java 17+ (JDK)**, **Maven**, and **Node.js** installed on your system.
-2. Double-click the `run.bat` file in the root directory, or run it via PowerShell/CMD:
-   ```powershell
-   ./run.bat
-   ```
-3. Once running:
-   * **Backend API**: Running at [http://localhost:8080](http://localhost:8080)
-   * **Frontend UI**: Running at [http://localhost:5173](http://localhost:5173)
+### Prerequisites
+Make sure you have the following installed on your machine:
+- Java JDK 17 or higher
+- Node.js (v18 or higher) and npm
+- Apache Maven
 
 ---
 
-## ⚙️ Manual Setup & Running
-
-If you prefer to start the servers manually, follow these commands:
-
-### 1. Backend (Spring Boot)
-Open a terminal in the `backend/` directory:
+### Step 1: Clone the Repository
+Open your terminal and run the following command to download the code:
 ```bash
-cd backend
-mvn spring-boot:run
-```
-* **Database Console**: Accessible at [http://localhost:8080/h2-console](http://localhost:8080/h2-console) (JDBC URL: `jdbc:h2:mem:compare_db`, Username: `sa`, Password: *blank*).
-* **Switching to MySQL**: To use MySQL instead of H2, uncomment the MySQL section in [backend/src/main/resources/application.properties](file:///c:/Users/abhis/OneDrive/Desktop/miniprojectfinal/backend/src/main/resources/application.properties) and update your database credentials.
-
-### 2. Frontend (React + Vite)
-Open a terminal in the `frontend/` directory:
-```bash
-cd frontend
-npm install
-npm run dev
+git clone https://github.com/Abhishek917165/Ecommerce-Price-Compare.git
+cd Ecommerce-Price-Compare
 ```
 
 ---
 
-## 👤 Seeded User Accounts
+### Step 2: Running the Project
 
-The database comes pre-seeded with sample users for testing authentication and roles:
+#### Option A: Quick Start (Windows)
+Double-click the `run.bat` file in the root directory. This batch script automatically opens two terminal windows to launch both the backend and frontend servers simultaneously.
 
-| Username | Password | Role | Email |
-| :--- | :--- | :--- | :--- |
-| `admin` | `admin123` | **ADMIN** | `admin@compare.com` |
-| `user1` | `user123` | **USER** | `user1@compare.com` |
-| `user2` | `user223` | **USER** | `user2@compare.com` |
+#### Option B: Manual Setup
 
----
+1. **Start the Backend Server**:
+   - Open a terminal and navigate to the backend folder:
+     ```bash
+     cd backend
+     ```
+   - Run the Spring Boot application using Maven:
+     ```bash
+     mvn spring-boot:run
+     ```
+   - The backend server will start running on port `8080`.
+   - Access the H2 Database Console at: `/h2-console` (Username: `sa`, Password: leave blank).
 
-## 📝 License
-
-This project is open-source and available under the MIT License.
+2. **Start the Frontend Server**:
+   - Open another terminal and navigate to the frontend folder:
+     ```bash
+     cd frontend
+     ```
+   - Install the project dependencies:
+     ```bash
+     npm install
+     ```
+   - Start the development server:
+     ```bash
+     npm run dev
+     ```
+   - The frontend application will start running and display its local address (usually port `5173`). Open this address in your web browser.
